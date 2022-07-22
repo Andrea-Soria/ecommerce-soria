@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import './App.css';
+import ItemCount from './components/ItemCount';
+import ItemListContainer from './components/ItemListContainer';
+import NavBar from './components/NavBar';
+
+
+const onAdd = (count) => {
+      alert('Compra total:' + count)
+    }
+    
+    function App() {
+      return (
+        <div className="App">
+          <NavBar/>
+          <ItemListContainer/>
+          <ItemCount initial={1} stock={11} onAdd={onAdd}/>
+        </div>
+      );
+    }
+    
 
 export default App;
