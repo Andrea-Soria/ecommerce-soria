@@ -12,11 +12,11 @@ const ItemListContainer = () => {
         if (categoriaId) {            
             getFetch()
             .then(resp => setProductos(resp.filter(producto => producto.categoria === categoriaId)))
-            .catch( err => console.log(err))             
+            .catch(err => console.log(err))             
         } else {
             getFetch()
             .then(resp => setProductos(resp)) 
-            .catch( err => console.log(err))                 
+            .catch(err => console.log(err))                 
         }
         
     },[categoriaId])

@@ -21,7 +21,7 @@ const Item = ({producto}) => {
                   </div>
                 
                   <div className="card-footer"> 
-                    <Link to={`/detalle/${producto.id}`}>
+                    <Link to={`/id/${producto.id}`}>
                       <button className="btn btn-outline-primary btn-block">
                         detalle del producto
                       </button> 
