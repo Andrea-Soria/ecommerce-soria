@@ -1,5 +1,4 @@
-{
-    "productos":[
+[
         {
             "id": 1, 
             "title": "Cuchita Redonda", 
@@ -29,6 +28,5 @@
             "pictureUrl": "https://img-aws.ehowcdn.com/750x400p/photos.demandstudios.com/51/17/fotolia_1339025_XS.jpg"                   
         }
         
-    ]
+]
 
-}

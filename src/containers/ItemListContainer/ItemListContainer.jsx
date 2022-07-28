@@ -1,38 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState , } from 'react'
+import { getFetch } from "../../helpers/getFetch"
+import { useParams } from 'react-router-dom'
+import ItemList from '../../components/ItemList/ItemList'
 
-import { useEffect, useState } from "react"
+const ItemListContainer = () => {
 
-
-
-
-const ItemListContainer = () => {       
-        
     const [productos, setProductos] = useState([])
-   
-    
-     const getFecht = async () => {
-        try {
-            const resp = await fetch('/assets/Json/DATA.json')
-            const dataParse = await resp.json()
-            setProductos(dataParse)
-        } catch (error) {
-            console.log(error)
+    const { categoriaId } = useParams()
+
+    useEffect(()=>{
+        if (categoriaId) {            
+            getFetch()
+            .then(resp => setProductos(resp.filter(producto => producto.categoria === categoriaId)))
+            .catch( err => console.log(err))             
+        } else {
+            getFetch()
+            .then(resp => setProductos(resp)) 
+            .catch( err => console.log(err))                 
         }
-     }
+        
+    },[categoriaId])
 
-     useEffect (() => {
-         getFecht()
-     }, [])
-                 
-     console.table(productos)
 
-    
-    return (
-            <div>
-                 {productos.map(producto => <div>{producto.title}</div>)}
-            </div>
-    )
-                
-    }
-    
-    export default ItemListContainer
+    console.table(categoriaId)
+
+  return (
+    <ItemList productos={productos}/>
+  )
+}
+
+export default ItemListContainer
